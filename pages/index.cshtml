@@ -1,0 +1,95 @@
+@page
+@using Parcial_Yata_Belinda
+@using System.Data
+@inject MascotaDAO dao
+
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PawCare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100 py-5">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5 col-xl-4">
+
+                <h1 class="text-center mb-4 fw-bold text-primary">Registro de Mascotas</h1>
+
+                <form class="p-4 border rounded-3 shadow bg-white" method="post" action="/insertar">
+                    <div class="mb-3">
+                        <label for="txtNombreMascota" class="form-label fw-semibold">Nombre de la mascota</label>
+                        <input type="text" class="form-control" id="txtNombreMascota" name="nombreMascota">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtNombreDueno" class="form-label fw-semibold">Nombre del dueño</label>
+                        <input type="text" class="form-control" id="txtNombreDueno" name="nombreDueno">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtTipo" class="form-label fw-semibold">Tipo</label>
+                        <input type="text" class="form-control" id="txtTipo" name="tipo" placeholder="Ej. Perro, Gato y otros">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label for="txtEdad" class="form-label fw-semibold">Edad</label>
+                            <input type="number" class="form-control" id="txtEdad" name="edad">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label for="txtTelefono" class="form-label fw-semibold">Teléfono</label>
+                            <input type="tel" class="form-control" id="txtTelefono" name="telefono">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtObservacion" class="form-label fw-semibold">Observación</label>
+                        <textarea class="form-control" id="txtObservacion" name="observacion" rows="3"></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 mt-2 fw-bold">Guardar Registro</button>
+                </form>
+
+                <!--Tabla listado-->
+                <div class="table-responsive mt-4">
+                    <table class="table table-striped table-hover align-middle shadow-sm rounded border">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nombre</th>
+                                <th>Dueño</th>
+                                <th>Tipo</th>
+                                <th>Edad</th>
+                                <th>Teléfono</th>
+                                <th>Observación</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{
+                            DataTable dt = dao.ListarMascotas();
+                            foreach (DataRow row in dt.Rows)
+                            {
+                            <tr>
+                                <td>@row["Id"]</td>
+                                <td>@row["NombreMascota"]</td>
+                                <td>@row["NombreDueno"]</td>
+                                <td>@row["Tipo"]</td>
+                                <td>@row["Edad"]</td>
+                                <td>@row["Telefono"]</td>
+                                <td>@row["Observaciones"]</td>
+                            </tr>
+                            }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
