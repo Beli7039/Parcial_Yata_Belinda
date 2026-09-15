@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PawCare</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container-fluid d-flex flex-column justify-content-center align-items-center min-vh-100 py-5 bg-light">
+        <div class="row w-100 justify-content-center">
+            <div class="col-12 col-md-8 col-lg-5 col-xl-4">
+
+                <h1 class="text-center mb-4 fw-bold text-primary">Registro de Mascotas</h1>
+
+                <form class="p-4 border rounded-3 shadow bg-white">
+                    <div class="mb-3">
+                        <label for="txtNombreMascota" class="form-label fw-semibold">Nombre de la mascota</label>
+                        <input type="text" class="form-control" id="txtNombreMascota">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtNombreDueno" class="form-label fw-semibold">Nombre del dueño</label>
+                        <input type="text" class="form-control" id="txtNombreDueno">
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtTipo" class="form-label fw-semibold">Tipo</label>
+                        <input type="text" class="form-control" id="txtTipo" placeholder="Ej. Perro, Gato y otros">
+                    </div>
+
+                    <div class="row">
+                        <div class="col-6 mb-3">
+                            <label for="txtEdad" class="form-label fw-semibold">Edad</label>
+                            <input type="number" class="form-control" id="txtEdad">
+                        </div>
+                        <div class="col-6 mb-3">
+                            <label for="txtTelefono" class="form-label fw-semibold">Teléfono</label>
+                            <input type="tel" class="form-control" id="txtTelefono">
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="txtObservacion" class="form-label fw-semibold">Observación</label>
+                        <textarea class="form-control" id="txtObservacion" rows="3" "></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100 py-2 mt-2 fw-bold">Guardar Registro</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--Tabla listado-->
+    <table class="table table-striped table-hover align-middle">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+           
+        </tbody>
+    </table>
+
+</body>
+</html>
